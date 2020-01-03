@@ -31,7 +31,7 @@ public class JerseyClientGet {
             ValCurs valCurs = (ValCurs)xstream.fromXML(output);
 
             for(Valute currentVal : valCurs.getValutes())  {
-                System.out.println(currentVal.getValue());
+                System.out.println(currentVal.getCharCode());
             }
 
         } catch (Exception e) {

@@ -7,7 +7,7 @@ public class Valute {
     @XStreamAlias("NumCode")
     private String numCode;
     @XStreamAlias("CharCode")
-    private String сharCode;
+    private String charCode;
     @XStreamAlias("Nominal")
     private int nominal;
     @XStreamAlias("Name")
@@ -23,7 +23,7 @@ public class Valute {
     public String toString() {
         return "Valute{" +
                 "numCode='" + numCode + '\'' +
-                ", сharCode='" + сharCode + '\'' +
+                ", сharCode='" + charCode + '\'' +
                 ", nominal=" + nominal +
                 ", name='" + name + '\'' +
                 ", value=" + value +
@@ -39,12 +39,12 @@ public class Valute {
         this.numCode = numCode;
     }
 
-    public String getСharCode() {
-        return сharCode;
+    public String getCharCode() {
+        return charCode;
     }
 
-    public void setСharCode(String сharCode) {
-        this.сharCode = сharCode;
+    public void setCharCode(String charCode) {
+        this.charCode = charCode;
     }
 
     public int getNominal() {
