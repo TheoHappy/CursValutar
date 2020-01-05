@@ -8,16 +8,14 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.thoughtworks.xstream.XStream;
-import java.awt.Color;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Currency;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JPanel;
+
 
 /**
  *
@@ -27,10 +25,12 @@ public class UserInterface extends javax.swing.JFrame {
 
     int xx;
     int xy;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
 
     public UserInterface() {
         initComponents();
-        charCodeBox.setVisible(false);
+        charCodeBoxT.setVisible(false);
         dateLabel.setVisible(false);
         jButton1.setVisible(false);
         valueLabel.setVisible(false);
@@ -91,6 +91,8 @@ public class UserInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField2 = new javax.swing.JTextField();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -99,15 +101,32 @@ public class UserInterface extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        convertToPanel = new javax.swing.JPanel();
+        charCodeBoxHave = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        hTextField = new javax.swing.JTextField();
+        wTextField = new javax.swing.JTextField();
+        ConvertToButton = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        historyOfRatesPanel = new javax.swing.JPanel();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        jLabel9 = new javax.swing.JLabel();
+        ConvertHORButton = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        charCodeHOR = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
         todayPanel = new javax.swing.JPanel();
         dateLabel = new javax.swing.JLabel();
-        charCodeBox = new javax.swing.JComboBox<>();
+        charCodeBoxT = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         valueLabel = new javax.swing.JLabel();
-        convertToPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        historyOfRatesPanel = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+
+        jTextField2.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -136,7 +155,7 @@ public class UserInterface extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Java Projects\\cursvalutar\\src\\main\\java\\Swing\\Images\\logo.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
 
         jButton4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(153, 155, 180));
@@ -215,14 +234,205 @@ public class UserInterface extends javax.swing.JFrame {
 
         jLayeredPane1.setLayout(new java.awt.CardLayout());
 
+        convertToPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setText("Currency I Have");
+
+        jLabel3.setText("Currency I Want");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("/Users/theo/Documents/Java Apps/CursValutar/src/main/resources/images/Convert64.png")); // NOI18N
+
+        jLabel6.setText("Amount:");
+
+        jLabel7.setText("Amount:");
+
+        hTextField.setToolTipText("");
+        hTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hTextFieldActionPerformed(evt);
+            }
+        });
+
+        wTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wTextFieldActionPerformed(evt);
+            }
+        });
+
+        ConvertToButton.setBackground(new java.awt.Color(255, 255, 255));
+        ConvertToButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sendDefault.png"))); // NOI18N
+        ConvertToButton.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/sendBlack.png"))); // NOI18N
+        ConvertToButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConvertToButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("MDL");
+
+        javax.swing.GroupLayout convertToPanelLayout = new javax.swing.GroupLayout(convertToPanel);
+        convertToPanel.setLayout(convertToPanelLayout);
+        convertToPanelLayout.setHorizontalGroup(
+            convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(convertToPanelLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(convertToPanelLayout.createSequentialGroup()
+                        .addGroup(convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(hTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(charCodeBoxHave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGroup(convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(convertToPanelLayout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel5))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, convertToPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ConvertToButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7)
+                    .addComponent(wTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58))
+        );
+        convertToPanelLayout.setVerticalGroup(
+            convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(convertToPanelLayout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addGroup(convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(convertToPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8))
+                    .addGroup(convertToPanelLayout.createSequentialGroup()
+                        .addGroup(convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(convertToPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(charCodeBoxHave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(convertToPanelLayout.createSequentialGroup()
+                                .addGroup(convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(hTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(wTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ConvertToButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(156, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.add(convertToPanel, "card3");
+
+        historyOfRatesPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        datePicker1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                datePicker1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                datePicker1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                datePicker1MouseExited(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel9.setText("Select Date:");
+
+        ConvertHORButton.setBackground(new java.awt.Color(255, 255, 255));
+        ConvertHORButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sendDefault.png"))); // NOI18N
+        ConvertHORButton.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/sendBlack.png"))); // NOI18N
+        ConvertHORButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConvertHORButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("/Users/theo/Documents/Java Apps/CursValutar/src/main/resources/images/HistoryOfRatesLogo128.png")); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel11.setText("Select currency:");
+
+        charCodeHOR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                charCodeHORMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                charCodeHORMouseExited(evt);
+            }
+        });
+
+        jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+
+        javax.swing.GroupLayout historyOfRatesPanelLayout = new javax.swing.GroupLayout(historyOfRatesPanel);
+        historyOfRatesPanel.setLayout(historyOfRatesPanelLayout);
+        historyOfRatesPanelLayout.setHorizontalGroup(
+            historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, historyOfRatesPanelLayout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, historyOfRatesPanelLayout.createSequentialGroup()
+                        .addGroup(historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel9))
+                        .addGap(47, 47, 47)
+                        .addGroup(historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(charCodeHOR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(historyOfRatesPanelLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(ConvertHORButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26))
+            .addGroup(historyOfRatesPanelLayout.createSequentialGroup()
+                .addGap(152, 152, 152)
+                .addComponent(jLabel10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        historyOfRatesPanelLayout.setVerticalGroup(
+            historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(historyOfRatesPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(55, 55, 55)
+                .addGroup(historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(historyOfRatesPanelLayout.createSequentialGroup()
+                        .addGroup(historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(18, 18, 18)
+                        .addGroup(historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(charCodeHOR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConvertHORButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.add(historyOfRatesPanel, "card4");
+
         todayPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         dateLabel.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         dateLabel.setText("Today is");
 
-        charCodeBox.addActionListener(new java.awt.event.ActionListener() {
+        charCodeBoxT.setBackground(new java.awt.Color(255, 255, 255));
+        charCodeBoxT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        charCodeBoxT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                charCodeBoxActionPerformed(evt);
+                charCodeBoxTActionPerformed(evt);
             }
         });
 
@@ -244,7 +454,7 @@ public class UserInterface extends javax.swing.JFrame {
             todayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(todayPanelLayout.createSequentialGroup()
                 .addGap(132, 132, 132)
-                .addComponent(charCodeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(charCodeBoxT, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -263,55 +473,13 @@ public class UserInterface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(todayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(todayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(charCodeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(charCodeBoxT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(valueLabel))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(289, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(todayPanel, "card2");
-
-        jLabel3.setText("Convert");
-
-        javax.swing.GroupLayout convertToPanelLayout = new javax.swing.GroupLayout(convertToPanel);
-        convertToPanel.setLayout(convertToPanelLayout);
-        convertToPanelLayout.setHorizontalGroup(
-            convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, convertToPanelLayout.createSequentialGroup()
-                .addContainerGap(217, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(215, 215, 215))
-        );
-        convertToPanelLayout.setVerticalGroup(
-            convertToPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, convertToPanelLayout.createSequentialGroup()
-                .addContainerGap(207, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(169, 169, 169))
-        );
-
-        jLayeredPane1.add(convertToPanel, "card3");
-
-        jLabel4.setText("History");
-
-        javax.swing.GroupLayout historyOfRatesPanelLayout = new javax.swing.GroupLayout(historyOfRatesPanel);
-        historyOfRatesPanel.setLayout(historyOfRatesPanelLayout);
-        historyOfRatesPanelLayout.setHorizontalGroup(
-            historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(historyOfRatesPanelLayout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(286, Short.MAX_VALUE))
-        );
-        historyOfRatesPanelLayout.setVerticalGroup(
-            historyOfRatesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(historyOfRatesPanelLayout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
-        );
-
-        jLayeredPane1.add(historyOfRatesPanel, "card4");
 
         jPanel1.add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 470, 390));
 
@@ -352,19 +520,23 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
         switchPanels(convertToPanel);
+        LocalDate date = LocalDate.now();
+        List<Valute> rates = getRates(date.format(formatter));
+        for (Valute currentVal : rates) {
+            charCodeBoxHave.addItem(currentVal.getCharCode());
+//            charCodeBoxWant.addItem(currentVal.getCharCode());
+        }
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
         LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         dateLabel.setText("Today is " + date.format(formatter));
         System.out.println(String.valueOf(date));
         dateLabel.setVisible(true);
-        charCodeBox.setVisible(true);
+        charCodeBoxT.setVisible(true);
         jButton1.setVisible(true);
         valueLabel.setVisible(true);
 
@@ -372,10 +544,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         List<Valute> rates = getRates(date.format(formatter));
         for (Valute currentVal : rates) {
-
-            charCodeBox.addItem(currentVal.getCharCode();
-//            if (currentVal.getCharCode().equals(c.getSymbol()))
-//                charCodeBox.addItem(currentVal.getCharCode()+" "+c.getSymbol());
+            charCodeBoxT.addItem(currentVal.getCharCode());
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -383,17 +552,18 @@ public class UserInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         switchPanels(historyOfRatesPanel);
+       
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void charCodeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_charCodeBoxActionPerformed
+    private void charCodeBoxTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_charCodeBoxTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_charCodeBoxActionPerformed
+    }//GEN-LAST:event_charCodeBoxTActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        String selectedCharCode = (String) charCodeBox.getSelectedItem();
+        String selectedCharCode = (String) charCodeBoxT.getSelectedItem();
         LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         List<Valute> rates = getRates(date.format(formatter));
         for (Valute currentVal : rates) {
             if (selectedCharCode.equals(currentVal.getCharCode())) {
@@ -402,6 +572,88 @@ public class UserInterface extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ConvertToButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertToButtonActionPerformed
+        // TODO add your handling code here:
+        Double haveValue = Double.parseDouble(hTextField.getText());
+//        Double wantValue = Double.parseDouble(wTextField.getText());
+        String haveCharCode = (String) charCodeBoxHave.getSelectedItem();
+//        String wantCharCode = (String) charCodeBoxWant.getSelectedItem();
+        
+        Double result = 0.0;
+        
+        LocalDate date = LocalDate.now();
+        List<Valute> rates = getRates(date.format(formatter));
+        for (Valute currentVal : rates) {
+            if (haveCharCode.equals(currentVal.getCharCode())){
+                result = currentVal.getValue() * haveValue;
+            }
+        }
+        wTextField.setText(String.format("%.2f",result));
+//        test.setText("vasea");
+    }//GEN-LAST:event_ConvertToButtonActionPerformed
+
+    private void hTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hTextFieldActionPerformed
+
+    private void wTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wTextFieldActionPerformed
+
+    private void ConvertHORButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertHORButtonActionPerformed
+        // TODO add your handling code here:
+        LocalDate selectedValue = (LocalDate) datePicker1.getDate();
+        String hCharCode = (String) charCodeHOR.getSelectedItem();
+        List<Valute> rates = getRates(selectedValue.format(formatter));
+        for (Valute currentVal : rates) {
+            if (hCharCode.equals(currentVal.getCharCode())){
+                jTextField1.setText(String.format("%.2f MDL",currentVal.getValue()));
+            }
+        }
+//        jTextField1.setText("[po");
+    }//GEN-LAST:event_ConvertHORButtonActionPerformed
+
+    private void datePicker1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datePicker1MouseClicked
+        // TODO add your handling code here:
+//        LocalDate selectedValue = (LocalDate) datePicker1.getDate();
+//        List<Valute> rates = getRates(selectedValue.format(formatter));
+//        for (Valute currentVal : rates) {
+//            charCodeHOR.addItem(currentVal.getCharCode());
+//        }
+    }//GEN-LAST:event_datePicker1MouseClicked
+
+    private void datePicker1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datePicker1MouseEntered
+        // TODO add your handling code here:
+//        LocalDate selectedValue = (LocalDate) datePicker1.getDate();
+//        List<Valute> rates = getRates(selectedValue.format(formatter));
+//        for (Valute currentVal : rates) {
+//            charCodeHOR.addItem(currentVal.getCharCode());
+//        }
+    }//GEN-LAST:event_datePicker1MouseEntered
+
+    private void charCodeHORMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_charCodeHORMouseClicked
+        // TODO add your handling code here:
+    
+    }//GEN-LAST:event_charCodeHORMouseClicked
+
+    private void datePicker1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datePicker1MouseExited
+        // TODO add your handling code here:
+//        LocalDate selectedValue = (LocalDate) datePicker1.getDate();
+//        List<Valute> rates = getRates(selectedValue.format(formatter));
+//        for (Valute currentVal : rates) {
+//            charCodeHOR.addItem(currentVal.getCharCode());
+//        }
+    }//GEN-LAST:event_datePicker1MouseExited
+
+    private void charCodeHORMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_charCodeHORMouseExited
+        // TODO add your handling code here:
+        LocalDate selectedValue = (LocalDate) datePicker1.getDate();
+        List<Valute> rates = getRates(selectedValue.format(formatter));
+        for (Valute currentVal : rates) {
+            charCodeHOR.addItem(currentVal.getCharCode());
+        }
+    }//GEN-LAST:event_charCodeHORMouseExited
 
     /**
      * @param args the command line arguments
@@ -439,22 +691,39 @@ public class UserInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> charCodeBox;
+    private javax.swing.JButton ConvertHORButton;
+    private javax.swing.JButton ConvertToButton;
+    private javax.swing.JComboBox<String> charCodeBoxHave;
+    private javax.swing.JComboBox<String> charCodeBoxT;
+    private javax.swing.JComboBox<String> charCodeHOR;
     private javax.swing.JPanel convertToPanel;
     private javax.swing.JLabel dateLabel;
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private javax.swing.JTextField hTextField;
     private javax.swing.JPanel historyOfRatesPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel todayPanel;
     private javax.swing.JLabel valueLabel;
+    private javax.swing.JTextField wTextField;
     // End of variables declaration//GEN-END:variables
 }
